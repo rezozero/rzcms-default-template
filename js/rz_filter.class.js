@@ -55,7 +55,7 @@ RZFilter = function (options) {
 	else {
 		throw('[RZFilter] No project or filter to apply.');
 	}
-}
+};
 RZFilter.prototype.settings = null;
 RZFilter.prototype.filterBar = null;
 RZFilter.prototype.projects = null;
@@ -112,7 +112,7 @@ RZFilter.prototype.gridFiltered = function(selector)
 	setTimeout(function() { 
 		o.reDisplay(selector);
 	}, 50);
-}
+};
 
 RZFilter.prototype.reDisplay = function(selector) {
 	var o = this;
@@ -132,5 +132,5 @@ RZFilter.prototype.reDisplay = function(selector) {
 			}
 		},delay);
 		i++;
-	})
-}
+	});
+};
