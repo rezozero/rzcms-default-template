@@ -1,0 +1,22 @@
+{# 
+ # Essentials JS contains jQuery lib and jQuery migrate
+ # It's better to load them at the end , but we won't be able to use inline jquery (it's bad)
+ #}
+{{ head.jsEssentials|raw }}
+{# 
+ # Import some useful libs such as ActualJS and add your Google analytics tracking 
+ # if your set up your tracker ID in global settings 
+ #}
+{{ head.jsCore|raw }}
+
+{# 
+ # Project specific JS files
+ #}
+{% if head.debug %}
+{# List here your JS homemade and vendors, do not forget to declare them in your Gruntfile.js #}
+<script type="text/javascript" src="{{ head.jsFolder }}plugins.js"></script>
+<script type="text/javascript" src="{{ head.jsFolder }}main.js"></script>
+{% else %}
+{# Minified JS file is generated with Grunt. Check your package.json to choose your file name #}
+<script type="text/javascript" src="{{ head.distFolder }}default-template.min.js"></script>
+{% endif %}

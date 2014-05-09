@@ -1,0 +1,26 @@
+{% include 'includes/header.html.twig' %}
+    <body class="{{ body.classes }}">
+        {# 
+        -------- Main navigation block -----------
+        #}
+        {% include 'includes/mainNavigation.html.twig' %}
+        
+        {# 
+        ------------- Main container block to be inherited by content_xxx.php -------------
+         #}
+        <div id="main_container">{% block content %}{% endblock %}</div>
+        {#  
+        -------------- Footer --------------
+         #}
+        <div id="footer">
+            {% block footer %}
+                &copy; Copyright by <a href="{{ footer.copyright_link }}">{{ footer.copyright }}</a>.
+            {% endblock %}
+        </div>
+        {{ head.jsCore|raw }}
+        {#  
+        -------------- Import template specific JS scripts --------------
+         #}
+        {% include 'includes/scripts.html.twig' %}
+    </body>
+</html>

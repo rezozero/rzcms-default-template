@@ -1,0 +1,5 @@
+<nav id="mainNavigation">
+	{% for item in mainNavigation.entries %}
+    <a {% if mainNavigation.active == item.node.node_name  %}class="active"{% endif %} href="{{ item.node.getNodeURL }}">{{ item.title }}</a>
+	{% endfor %}
+</nav>

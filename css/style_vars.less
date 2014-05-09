@@ -1,0 +1,17 @@
+/* Grid */
+@grid_width: 	0px;
+@grid_height: 	0px;
+
+@main_color : #be9e55;
+@main_color_darken : #a88855;
+
+// For CSS Matrix images
+@icon-size : 40px;
+@icons-picture : @icon-size*7 @icon-size*11;
+
+.matrix-icon() {
+	background-image: 	url(../img/matrix@2x.png);
+	background-repeat: 	no-repeat;
+	background-size: 	@icons-picture;
+	.keep-image-aspect();
+}

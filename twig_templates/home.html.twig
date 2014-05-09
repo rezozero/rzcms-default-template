@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>{{ home.node.title }}</h1>
+    <p class="important">
+       {{ "Welcome to my awesome homepage."|dgettext('domain') }}
+    </p>
+    <div id="home_content">
+    	{{ home.node.content|raw }}
+    </div>
+{% endblock %}

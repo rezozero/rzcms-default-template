@@ -1,0 +1,70 @@
+/*
+
+ CSS for browser compatiblity splashscreen
+
+ */
+
+#browser_splashscreen {
+	background-color: #F0F0F0;
+}
+
+#browser_splashscreen_container {
+	width: 540px;
+	margin: 100px auto;
+	background-color: #FFFFFF;
+	padding: 30px 50px;
+}
+
+#browser_splashscreen_container h1 {
+	font-size: 30px;
+	line-height: 35px;
+	margin: 20px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #CCC;
+}
+#browser_splashscreen_container h2 {
+	font-size: 25px;
+	margin: 0 0 20px 0;
+}
+
+#browser_splashscreen_container h1,
+#browser_splashscreen_container p,
+#browser_splashscreen_container a {
+	color: #666;
+}
+
+#browsers {
+	padding: 0;
+	margin: 20px 0;
+	list-style: none;
+}
+
+#browsers li {
+	display: block;
+	float: left;
+	margin: 5px 15px;
+	width:	80px;
+}
+#browsers li:first-child {
+	margin-left:0px;
+}
+#browsers li img{
+	width:	80px;
+}
+#browsers li img,
+#browsers li a {
+	display: block;
+	text-align: center;
+
+	text-decoration: none;
+	color: #999;
+}
+#browsers li a:hover {
+	color: #333;
+}
+
+#browsers li.clearfloat {
+	clear: both;
+	float: none;
+	margin: 0;
+}
