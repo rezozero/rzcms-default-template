@@ -8,6 +8,18 @@
  # if your set up your tracker ID in global settings 
  #}
 {{ head.jsCore|raw }}
+
+{# 
+ # Tweenlite
+ #}
+{% if head.useCDN %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.7/plugins/ScrollToPlugin.min.js"></script>
+{% else %}
+<script type="text/javascript" src="{{ head.jsFolder }}vendor/TweenMax.min.js"></script>
+<script type="text/javascript" src="{{ head.jsFolder }}vendor/ScrollToPlugin.js"></script>
+{% endif %}
+
 {# 
  # Project specific JS files
  #}
