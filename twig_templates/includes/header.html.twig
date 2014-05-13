@@ -15,12 +15,27 @@
         <meta name="description" content="{{ head.description }}" />
         <meta name="keywords" content="{{ head.keywords }}" />
         {# 
-        -------- Favicons and Apple favicon -----------
+        -------- Favicons (generated with Real Favicon Generator -> http://realfavicongenerator.net) ----------- 
         #}
-        <link rel="shortcut icon" href="{{ head.imgFolder }}favicon.ico" />
-        <link rel="apple-touch-icon-precomposed" href="{{ head.imgFolder }}apple-icon.png"/>
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-capable" content="no" />
+        <link rel="shortcut icon" href="{{ head.imgFolder }}favicon.ico" />
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ head.imgFolder }}favicons/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ head.imgFolder }}favicons/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ head.imgFolder }}favicons/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ head.imgFolder }}favicons/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ head.imgFolder }}favicons/apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ head.imgFolder }}favicons/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ head.imgFolder }}favicons/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ head.imgFolder }}favicons/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="{{ head.imgFolder }}favicons/favicon-196x196.png" sizes="196x196" />
+        <link rel="icon" type="image/png" href="{{ head.imgFolder }}favicons/favicon-160x160.png" sizes="160x160" />
+        <link rel="icon" type="image/png" href="{{ head.imgFolder }}favicons/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="{{ head.imgFolder }}favicons/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="{{ head.imgFolder }}favicons/favicon-32x32.png" sizes="32x32" />
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ head.imgFolder }}favicons/mstile-144x144.png">
+        <meta name="msapplication-config" content="{{ head.imgFolder }}favicons/browserconfig.xml">
         {# 
         -------- Import styles with LESS or CSS -----------
         #}
