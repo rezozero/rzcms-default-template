@@ -11,3 +11,7 @@
 
 * You can check [RZCMS API website](http://api.rezo-zero.com) for detailled PHP reference.
 * Or read development documentation on our [wiki](http://wiki.rezo-zero.com).
+
+## Conventions
+
+* Use 'page' as assignation name for every controller and use 'page.node' for node associations. Important for having the page name displayed in the id attribute on body tag.
