@@ -1,19 +1,19 @@
 /*
  * ============================================================================
- * [namespace] Namespace
+ * [NAMESPACE] NAMESPACE
  * ============================================================================
  */
-var namespace = {};
+var NAMESPACE = {};
 
-	namespace.$body = null;
-	namespace.$window = null;
-	namespace.windowWidth = 0;
-	namespace.windowHeight = 0;
+	NAMESPACE.$body = null;
+	NAMESPACE.$window = null;
+	NAMESPACE.windowWidth = 0;
+	NAMESPACE.windowHeight = 0;
 
-	namespace.page = null;
+	NAMESPACE.page = null;
 
 	// Pages
-	namespace.page1 = null;
+	NAMESPACE.page1 = null;
 
 	
 /*
@@ -27,7 +27,7 @@ var namespace = {};
  * On Load
  * @return {[type]} [description]
  */
-namespace.onLoad = function () 
+NAMESPACE.onLoad = function () 
 {
 	
 };
@@ -37,24 +37,24 @@ namespace.onLoad = function ()
  * DOM Ready
  * @return {[type]} [description]
  */
-namespace.onReady = function () {
+NAMESPACE.onReady = function () {
 
 	var _this = this;
 
-	namespace.$body = $('body');
-	namespace.$window = $(window);
-	namespace.windowWidth = namespace.$window.width();
-	namespace.page = namespace.$body[0].id;
+	NAMESPACE.$body = $('body');
+	NAMESPACE.$window = $(window);
+	NAMESPACE.windowWidth = NAMESPACE.$window.width();
+	NAMESPACE.page = NAMESPACE.$body[0].id;
 
-	namespace.baseFolder = temp.baseFolder;
-	namespace.checksum = temp.checksum;
+	NAMESPACE.baseFolder = temp.baseFolder;
+	NAMESPACE.checksum = temp.checksum;
 
 	// Resize
-	// namespace.$window.on('resize', $.proxy(namespace.resize, namespace));
-	// namespace.$window.trigger('resize');
+	// NAMESPACE.$window.on('resize', $.proxy(NAMESPACE.resize, NAMESPACE));
+	// NAMESPACE.$window.trigger('resize');
 	
 	// Init
-	namespace.init();
+	NAMESPACE.init();
 
 };
 
@@ -63,7 +63,7 @@ namespace.onReady = function () {
  * Init when pages are loaded
  * @return {[type]} [description]
  */
-namespace.init = function(){
+NAMESPACE.init = function(){
 	var _this = this;
 	
 	// Selectors 
@@ -79,7 +79,7 @@ namespace.init = function(){
  * Window resize callback
  * @return {[type]} [description]
  */
-namespace.resize = function(){
+NAMESPACE.resize = function(){
 	var _this = this;
 
 	// Define width/height
