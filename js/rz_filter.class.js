@@ -11,7 +11,7 @@
  *
  * ========== REQUIRES ===========
  *
- * - modernizr (with -mod- prefix by default)
+ * - modernizr
  * - jquery
  *
  * =========== Usage ============
@@ -29,31 +29,33 @@
  * @author Ambroise Maupate
  */
 RZFilter = function (options) {
-	var o = this;
+	var _this = this;
 
 	// This is the easiest way to have default options.
-    o.settings = $.extend({
+    _this.settings = $.extend({
         // These are the defaults.
         filterActiveClass: 	"active",
         projectHiddenClass: "hidden",
         projectMaskedClass: "masked",
         resetClass: 		"all",
+        filterTag: 			"a",
         dataName: 			"data-filter",
         filtersBar: 		'#filters',
         projects: 			'.project',
-        containerProjects: 	'#container_projects',
-        modernizerPrefix: 	'-mod-'
+        containerProjects: 	'#container_projects'
     }, options );
 
-	o.filtersBar = 			$(o.settings.filtersBar);
-	o.projects = 			$(o.settings.containerProjects+' '+o.settings.projects);
-	o.containerProjects = 	$(o.settings.containerProjects);
+	_this.filtersBar = 			$(_this.settings.filtersBar);
+	_this.projects = 			$(_this.settings.containerProjects+' '+_this.settings.projects);
+	_this.containerProjects = 	$(_this.settings.containerProjects);
 
-	if (o.filtersBar.length && o.projects.length > 0) {
-		o.bind();
+	if (_this.filtersBar.length && 
+		_this.projects.length > 0) {
+		_this.bind();
 	}
 	else {
-		throw('[RZFilter] No project or filter to apply.');
+		//throw('[RZFilter] No project or filter to apply.');
+		//console.log('[RZFilter] No project or filter to apply.');
 	}
 };
 RZFilter.prototype.settings = null;
@@ -62,60 +64,67 @@ RZFilter.prototype.projects = null;
 RZFilter.prototype.containerProjects = null;
 
 RZFilter.prototype.bind = function() {
-	var o = this;
+	var _this = this;
 
-	o.filtersBar.find('a').unbind('click');
-	o.filtersBar.find('a').bind('click', function(event) 
-	{
-		var filterSelected = $(this);
-		var selector  = '.'+filterSelected.attr(o.settings.dataName);
+	_this.filtersBar.find(_this.settings.filterTag).off('click', $.proxy(_this.onClick, _this));
+	_this.filtersBar.find(_this.settings.filterTag).on('click', $.proxy(_this.onClick, _this));
+};
 
-		if(filterSelected.hasClass(o.settings.resetClass)) {
-			selector = o.settings.projects;
-		}
-		
-		if($('html').hasClass(o.settings.modernizerPrefix+'csstransitions')) {
-			o.filtersBar.find('a').removeClass(o.settings.filterActiveClass);
-			filterSelected.addClass(o.settings.filterActiveClass);
-		} else {
-			o.filtersBar.find('a.'+o.settings.filterActiveClass).animate({
-				'border-width': '1px',
-				'border-bottom-color': '#bcbcbc'},
-				200, function() {
-					o.filtersBar.find('a').removeClass(o.settings.filterActiveClass);
-					filterSelected.addClass(o.settings.filterActiveClass);
-			});
-		}
+RZFilter.prototype.onClick = function(event) {
+	var _this = this;
+	var filterSelected = $(event.currentTarget);
+	var filterClass = filterSelected.attr(_this.settings.dataName);
+	var selector  = '.'+filterSelected.attr(_this.settings.dataName);
 
-		filterSelected.addClass(o.settings.filterActiveClass);
+	console.log("[RZFilter] Filter by => "+filterClass);
 
-			if($('html').hasClass(o.settings.modernizerPrefix+'csstransitions')) {
-				o.projects.addClass(o.settings.projectMaskedClass);
-			} else {
-				o.projects.fadeOut(250);
-			}
+	if( filterSelected.hasClass(_this.settings.resetClass) || 
+		filterClass == "all") {
+		console.log("[RZFilter] Reset filters");
+		selector = _this.settings.projects;
+	}
+	
+	if(Modernizr.csstransitions) {
+		_this.filtersBar.find(_this.settings.filterTag).removeClass(_this.settings.filterActiveClass);
+		filterSelected.addClass(_this.settings.filterActiveClass);
+	} else {
+		_this.filtersBar.find(_this.settings.filterTag+'.'+_this.settings.filterActiveClass).animate({
+			'border-width': '1px',
+			'border-bottom-color': '#bcbcbc'},
+			200, function() {
+				_this.filtersBar.find(_this.settings.filterTag).removeClass(_this.settings.filterActiveClass);
+				filterSelected.addClass(_this.settings.filterActiveClass);
+		});
+	}
 
-		setTimeout(function() {
-			o.gridFiltered(selector);
-		}, 250);
+	filterSelected.addClass(_this.settings.filterActiveClass);
 
-		event.preventDefault();
-		return false;
-	});
+	if(Modernizr.csstransitions) {
+		_this.projects.addClass(_this.settings.projectMaskedClass);
+	} else {
+		_this.projects.fadeOut(250);
+	}
+
+	setTimeout(function() {
+		_this.gridFiltered(selector);
+	}, 250);
+
+	event.preventDefault();
+	return false;
 };
 
 RZFilter.prototype.gridFiltered = function(selector) 
 {
-	var o = this;
-	o.projects.addClass(o.settings.projectHiddenClass);
-	$(selector).removeClass(o.settings.projectHiddenClass);
+	var _this = this;
+	_this.projects.addClass(_this.settings.projectHiddenClass);
+	$(selector).removeClass(_this.settings.projectHiddenClass);
 	setTimeout(function() { 
-		o.reDisplay(selector);
+		_this.reDisplay(selector);
 	}, 50);
 };
 
 RZFilter.prototype.reDisplay = function(selector) {
-	var o = this;
+	var _this = this;
 
 	var i = 1;
 	var delay;
@@ -125,8 +134,8 @@ RZFilter.prototype.reDisplay = function(selector) {
 		var goodProject = $(this);
 		delay = i*100;
 		setTimeout(function(){
-			if($('html').hasClass(o.settings.modernizerPrefix+'csstransitions')) {
-				goodProject.removeClass(o.settings.projectMaskedClass);
+			if(Modernizr.csstransitions) {
+				goodProject.removeClass(_this.settings.projectMaskedClass);
 			} else {
 				goodProject.fadeIn(250);
 			}
