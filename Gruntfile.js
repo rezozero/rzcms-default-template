@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 					"js/plugins.js",
 					"js/main.js"
 			  	],
-			  	dest: 'dist/<%= pkg.name %>.js',
+			  	dest: 'js/<%= pkg.name %>.js',
 			},
 		},
 		uglify: {
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 			banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 		  },
 		  build: {
-			src: 'dist/<%= pkg.name %>.js',
+			src: 'js/<%= pkg.name %>.js', 	
 			dest: 'dist/<%= pkg.name %>.min.js'
 		  }
 		},
@@ -52,7 +52,8 @@ module.exports = function(grunt) {
 		    	'Gruntfile.js', 
 		    	'js/**/*.js', 
 		    	'!js/*.min.js',
-		    	'!js/plugins.js'
+		    	'!js/plugins.js',
+				'!js/<%= pkg.name %>.js'
 		    ]
 		},
 		imagemin: {    
