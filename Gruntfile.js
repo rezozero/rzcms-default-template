@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 			dist: {
 			  	src: [
 					"js/plugins.js",
-					"js/main.js",
+					"js/main.js"
 			  	],
 			  	dest: 'dist/<%= pkg.name %>.js',
 			},
@@ -38,19 +38,19 @@ module.exports = function(grunt) {
 			scripts: {
 				files: [
 					'js/*.js', 
-					'css/*.less', 
+					'css/**/*.less', 
 					'src-img/*.{png,jpg,gif}'
 				],
 				tasks: ['less', 'jshint', 'concat','uglify', 'imagemin'],
 				options: {
-					event: ['added', 'deleted', 'changed'],
+					event: ['added', 'deleted', 'changed']
 				},
 			},
 		},
 		jshint: {
 		    all: [
 		    	'Gruntfile.js', 
-		    	'js/*.js', 
+		    	'js/**/*.js', 
 		    	'!js/*.min.js',
 		    	'!js/plugins.js'
 		    ]

@@ -2,14 +2,18 @@
  * Default desktop style
  */
 
-/* Default styles to be overrided */
-@import url("normalize.less"); // http://necolas.github.io/normalize.css/
-@import url("elements.less"); // https://github.com/rezozero/elements
+// Default styles & mixins
+@import url("base/normalize.less"); // http://necolas.github.io/normalize.css/
+@import url("base/elements.less"); // https://github.com/rezozero/elements
+@import url("base/easing.less");
+
+
+// Vars
 @import url("style_vars.less");
 
 
 /* Styles */
-@import url("style_commons.less");
+@import url("style_common.less");
 
 
 
@@ -41,5 +45,5 @@
 // }
 
 
-/* IE */
-@import url("style_ie.less");
+/* Alternative */
+@import url("style_alternative.less");

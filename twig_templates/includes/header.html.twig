@@ -3,7 +3,7 @@
 <!--[if IE 7]><html xmlns="http://www.w3.org/1999/xhtml" class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]><html xmlns="http://www.w3.org/1999/xhtml" class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" 
     xmlns:fb="https://www.facebook.com/2008/fbml" 
     xml:lang="{{ head.lang }}" 
     lang="{{ head.lang }}" 
@@ -14,6 +14,7 @@
         <meta name="generator" content="RZ-CMS {{ head.cmsVersion }}" />
         <meta name="description" content="{{ head.description }}" />
         <meta name="keywords" content="{{ head.keywords }}" />
+        
         {# 
         -------- Favicons (generated with Real Favicon Generator -> http://realfavicongenerator.net) ----------- 
         #}
@@ -36,6 +37,30 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{{ head.imgFolder }}favicons/mstile-144x144.png">
         <meta name="msapplication-config" content="{{ head.imgFolder }}favicons/browserconfig.xml">
+
+        {# 
+        -------- Share metas -----------
+        #}
+        <!-- Facebook -->
+        <meta property="og:title" content="{{ head.title }}" />
+        <meta property="og:site_name" content="{{ head.siteTitle }}" />
+        <meta property="og:description" content="{{ head.description }}" />
+        <meta property="og:url" content="{{ head.baseFolder }}" />
+        <meta property="og:image" content="{{ head.imgFolder }}share/share-200.png" />
+        <meta property="og:type" content="website" />
+        <!-- Google Plus -->
+        <meta itemprop="name" content="" />
+        <meta itemprop="description" content="" />
+        <meta itemprop="image" content="{{ head.imgFolder }}share/share-200.png" />
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="{{ head.title }}" />
+        <meta name="twitter:description" content="{{ head.description }}" />
+        <meta name="twitter:site" content="@rezo_zero" />
+        <meta name="twitter:creator" content="@rezo_zero" />
+        <meta name="twitter:url" content="{{ head.baseFolder }}" />
+        <meta name="twitter:image" content="{{ head.imgFolder }}share/share-200.png" />
+
         {# 
         -------- Import styles with LESS or CSS -----------
         #}

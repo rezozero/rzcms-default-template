@@ -6,10 +6,6 @@
  */
 class default_home extends rz_node_helper
 {
-	public function getRows(array $args = NULL){
-		return null;
-	}
-
 	/**
 	 * getView method is automatically called from template controller to display specific nodes or node-types
 	 * 
