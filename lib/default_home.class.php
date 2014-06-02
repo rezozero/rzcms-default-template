@@ -13,7 +13,7 @@ class default_home extends rz_node_helper
 	 */
 	public function getView()
 	{
-		rz_template::$globalAssignation['home'] = array(
+		rz_template::$globalAssignation['page'] = array(
 			'node'=>$this->getNode(),
 		);
 
