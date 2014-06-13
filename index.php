@@ -21,59 +21,61 @@ if (!defined("RZCMS_ENTRYPOINT")) {
 	// If file directly requested, throw 403
 	header('HTTP/1.0 403 Forbidden');
 	echo("<h2>HTTP/1.0 403 Forbidden</h2>");
-	exit;
 }
-
-define('TEMPLATE_FOLDER', 			dirname(__FILE__));
-define('TEMPLATE_BASE_FOLDER', 		rz_core::getTemplateFolder());
-define('TEMPLATE_JS_FOLDER', 		TEMPLATE_BASE_FOLDER.'js/');
-define('TEMPLATE_CSS_FOLDER', 		TEMPLATE_BASE_FOLDER.'css/');
-define('TEMPLATE_IMAGES_FOLDER', 	TEMPLATE_BASE_FOLDER.'img/');
-
-
-/*
- * Check if twig is correctly setup  
- */
-if(rz_twig_tools::init(TEMPLATE_FOLDER)) 
-{
-	/*
-	 * Prepare default assignations
-	 */
-	rz_template::$globalAssignation = rz_twig_tools::prepareBaseAssignation();
+else {
 	
-	/*
-	 * Template specific assignations
-	 */
-	rz_template::$globalAssignation['mainNavigation'] = default_mainNavigation::getBlock();
+	define('TEMPLATE_FOLDER', 			dirname(__FILE__));
+	define('TEMPLATE_BASE_FOLDER', 		rz_core::getTemplateFolder());
+	define('TEMPLATE_JS_FOLDER', 		TEMPLATE_BASE_FOLDER.'js/');
+	define('TEMPLATE_CSS_FOLDER', 		TEMPLATE_BASE_FOLDER.'css/');
+	define('TEMPLATE_IMAGES_FOLDER', 	TEMPLATE_BASE_FOLDER.'img/');
+
 
 	/*
-	 * Specific templates for nodes
+	 * Check if twig is correctly setup  
 	 */
-	$specificContentTemplates = array(
-		'home', 
-		//'contact'
-	);
+	if(rz_twig_tools::init(TEMPLATE_FOLDER)) 
+	{
+		/*
+		 * Prepare default assignations
+		 */
+		rz_template::$globalAssignation = rz_twig_tools::prepareBaseAssignation();
+		
+		/*
+		 * Template specific assignations
+		 */
+		rz_template::$globalAssignation['mainNavigation'] = default_mainNavigation::getBlock();
 
-	/*
-	 * List here nodes name that have to return a 404 error
-	 */
-	$noOutputNodes = array(
-		//'test'
-	);
+		/*
+		 * Specific templates for nodes
+		 */
+		$specificContentTemplates = array(
+			'home', 
+			//'contact'
+		);
 
-	if ($this->getRequestedNode() === null || 
-		in_array($this->getRequestedNode()->node_name, $noOutputNodes)) {
-		include(TEMPLATE_FOLDER.'/404/404.php');
-	}
-	else {
+		/*
+		 * List here nodes name that have to return a 404 error
+		 */
+		$noOutputNodes = array(
+			//'test'
+		);
 
-		$view = rz_template::getViewByController(TEMPLATE_FOLDER, $specificContentTemplates);
-		if ($view !== false) 
-		{
-			echo $view;
-		}
-		else {
+		if ($this->getRequestedNode() === null || 
+			in_array($this->getRequestedNode()->node_name, $noOutputNodes)) {
 			include(TEMPLATE_FOLDER.'/404/404.php');
 		}
+		else {
+
+			$view = rz_template::getViewByController(TEMPLATE_FOLDER, $specificContentTemplates);
+			if ($view !== false) 
+			{
+				echo $view;
+			}
+			else {
+				include(TEMPLATE_FOLDER.'/404/404.php');
+			}
+		}
 	}
 }
+
