@@ -65,13 +65,13 @@
         -------- Import styles with LESS or CSS -----------
         #}
         {% if head.useLESS == true %}
-            <link rel="stylesheet/less" type="text/css" href="{{ head.cssFolder }}style.less">
+        <link rel="stylesheet/less" type="text/css" href="{{ head.cssFolder }}style.less">
         {% else %}
-            <link rel="stylesheet" href="{{ head.cssFolder }}style.css" type="text/css" />
-       {% endif %}
-       {{ head.webFonts|raw }}
-       {{ head.cssLibs|raw }}
-       {# 
+        <link rel="stylesheet" href="{{ head.publicFolder }}{{ grunt.staticAssets.global.css[0] }}" type="text/css" />
+        {% endif %}
+        {{ head.webFonts|raw }}
+        {{ head.cssLibs|raw }}
+        {# 
         ------------ Import your own custom modernizer to keep good performances ------------
         #}
         {% if head.useCDN %}

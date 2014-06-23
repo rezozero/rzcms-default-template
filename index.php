@@ -40,7 +40,10 @@ else {
 		 * Prepare default assignations
 		 */
 		rz_template::$globalAssignation = rz_twig_tools::prepareBaseAssignation();
-		
+		/*
+		 * Grunt versioning
+		 */
+		rz_template::$globalAssignation['grunt'] = include(TEMPLATE_FOLDER.'/public/config/assets.config.php');
 		/*
 		 * Template specific assignations
 		 */

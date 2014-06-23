@@ -68,6 +68,34 @@ module.exports = function(grunt) {
 					dest: 'img/'                  // Destination path prefix
 				}]
 			}
+		},
+		versioning: {
+			options: {
+				cwd: 'public',
+				outputConfigDir: 'public/config',
+				output: 'php'
+			},
+			dist: {
+				files: [{
+					assets: [{
+			            src: [ 'dist/<%= pkg.name %>.min.js' ],
+			            dest: 'dist/<%= pkg.name %>.min.js'
+			        }], 
+					key: 'global',
+					dest: '',
+					type: 'js',
+					ext: '.min.js'
+				}, {
+					assets: [{
+			            src: [ 'css/style.css' ],
+			            dest: 'css/style.css'
+			        }], 
+					key: 'global',
+					dest: '',
+					type: 'css',
+					ext: '.css'
+				}]
+			}
 		}
 	});
 	
@@ -76,10 +104,10 @@ module.exports = function(grunt) {
 	 */
 	grunt.event.on('watch', function(action, filepath) {
 		if (filepath.indexOf('.js') > -1 ) {
-			grunt.config('watch.scripts.tasks', ['jshint', 'concat','uglify']);
+			grunt.config('watch.scripts.tasks', ['jshint', 'concat', 'uglify', 'versioning']);
 		}
 		else if(filepath.indexOf('.less') > -1 ){
-			grunt.config('watch.scripts.tasks', ['less']);
+			grunt.config('watch.scripts.tasks', ['less', 'versioning']);
 		}
 		else if( filepath.indexOf('.png') > -1  ||
 			filepath.indexOf('.jpg') > -1  ||
@@ -94,7 +122,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-static-versioning');
 
 	// Default task(s).
-	grunt.registerTask('default', ['jshint','concat','uglify','less','imagemin']);
+	grunt.registerTask('default', ['jshint','concat','uglify','less','imagemin', 'versioning']);
 };
