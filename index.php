@@ -40,6 +40,7 @@ else {
 		 * Prepare default assignations
 		 */
 		rz_template::$globalAssignation = rz_twig_tools::prepareBaseAssignation();
+		rz_template::$globalAssignation['head']['checksum'] = rz_user::getChecksum();
 		/*
 		 * Grunt versioning
 		 */

@@ -53,6 +53,7 @@ module.exports = function(grunt) {
 		    	'js/**/*.js', 
 		    	'!js/*.min.js',
 		    	'!js/plugins.js',
+		    	'!js/vendor/*.js',
 				'!js/<%= pkg.name %>.js'
 		    ]
 		},

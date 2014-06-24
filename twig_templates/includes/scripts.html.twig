@@ -33,3 +33,9 @@
 {# Minified JS file is generated with Grunt. Check your package.json to choose your file name #}
 <script type="text/javascript" src="{{ head.publicFolder }}{{ grunt.staticAssets.global.js[0] }}"></script>
 {% endif %}
+
+<script type="text/javascript">
+	var temp = {};
+	temp.baseFolder = "{{ head.baseFolder }}";
+	temp.checksum = "{{ head.checksum }}";
+</script>
