@@ -4,6 +4,6 @@
  * ============================================================================
  */
 (function () {
-	$(document).ready(namespace.onReady);
+	$(document).on('ready', namespace.onReady);
 	$(window).on('load', namespace.onLoad);
 })();
