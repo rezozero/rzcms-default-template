@@ -27,8 +27,7 @@ var NAMESPACE = {};
  * On Load
  * @return {[type]} [description]
  */
-NAMESPACE.onLoad = function () 
-{
+NAMESPACE.onLoad = function(){
 	
 };
 
@@ -37,7 +36,7 @@ NAMESPACE.onLoad = function ()
  * DOM Ready
  * @return {[type]} [description]
  */
-NAMESPACE.onReady = function () {
+NAMESPACE.onReady = function(){
 
 	var _this = this;
 

@@ -5,5 +5,5 @@
  */
 (function () {
 	$(document).ready(namespace.onReady);
-	$(window).load(namespace.onLoad);
+	$(window).on('load', namespace.onLoad);
 })();
