@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
-
+	require('jit-grunt')(grunt,
+	{
+		versioning: 'grunt-static-versioning'
+	});
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		concat: {
@@ -117,13 +120,14 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
+	/* Using JIT to load tasks */
+	/*grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.loadNpmTasks('grunt-static-versioning');
+	grunt.loadNpmTasks('grunt-static-versioning');*/
 
 	// Default task(s).
 	grunt.registerTask('default', ['jshint','concat','uglify','less','imagemin', 'versioning']);
