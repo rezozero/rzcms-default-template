@@ -100,7 +100,8 @@ module.exports = function(grunt) {
 					ext: '.css'
 				}]
 			}
-		}
+		},
+		clean: ["public"]
 	});
 	
 	/*
@@ -108,10 +109,10 @@ module.exports = function(grunt) {
 	 */
 	grunt.event.on('watch', function(action, filepath) {
 		if (filepath.indexOf('.js') > -1 ) {
-			grunt.config('watch.scripts.tasks', ['jshint', 'concat', 'uglify', 'versioning']);
+			grunt.config('watch.scripts.tasks', ['clean','jshint', 'concat', 'uglify', 'versioning']);
 		}
 		else if(filepath.indexOf('.less') > -1 ){
-			grunt.config('watch.scripts.tasks', ['less', 'versioning']);
+			grunt.config('watch.scripts.tasks', ['clean','less', 'versioning']);
 		}
 		else if( filepath.indexOf('.png') > -1  ||
 			filepath.indexOf('.jpg') > -1  ||
@@ -130,5 +131,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-static-versioning');*/
 
 	// Default task(s).
-	grunt.registerTask('default', ['jshint','concat','uglify','less','imagemin', 'versioning']);
+	grunt.registerTask('default', ['clean','jshint','concat','uglify','less','imagemin', 'versioning']);
 };
