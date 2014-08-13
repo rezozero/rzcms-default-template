@@ -42,7 +42,6 @@ NAMESPACE.onReady = function(){
 
 	NAMESPACE.$body = $('body');
 	NAMESPACE.$window = $(window);
-	NAMESPACE.windowWidth = NAMESPACE.$window.width();
 	NAMESPACE.page = NAMESPACE.$body[0].id;
 
 	NAMESPACE.baseFolder = temp.baseFolder;

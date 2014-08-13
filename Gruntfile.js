@@ -10,11 +10,12 @@ module.exports = function(grunt) {
 			  separator: ';',
 			},
 			dist: {
-			  	src: [
+				src: [
 					"js/plugins.js",
-					"js/main.js"
-			  	],
-			  	dest: 'js/<%= pkg.name %>.js',
+					"js/main.js",
+					"js/<%= pkg.name %>.class.js"
+				],
+				dest: 'js/<%= pkg.name %>.js',
 			},
 		},
 		uglify: {
@@ -23,14 +24,14 @@ module.exports = function(grunt) {
 		  },
 		  build: {
 			src: 'js/<%= pkg.name %>.js', 	
-			dest: 'dist/<%= pkg.name %>.min.js'
+			dest: 'js/<%= pkg.name %>.min.js'
 		  }
 		},
 		less: {
 			options: {
 				compress: true,
-        		yuicompress: true,
-        		optimization: 3
+				yuicompress: true,
+				optimization: 3
 			},
 			files: {
 				src : "css/style.less",
@@ -42,7 +43,9 @@ module.exports = function(grunt) {
 				files: [
 					'js/*.js', 
 					'css/**/*.less', 
-					'src-img/*.{png,jpg,gif}'
+					'src-img/*.{png,jpg,gif}',
+					'!js/<%= pkg.name %>.js', 	
+					'!js/<%= pkg.name %>.min.js'
 				],
 				tasks: ['less', 'jshint', 'concat','uglify', 'imagemin'],
 				options: {
@@ -51,25 +54,25 @@ module.exports = function(grunt) {
 			},
 		},
 		jshint: {
-		    all: [
-		    	'Gruntfile.js', 
-		    	'js/**/*.js', 
-		    	'!js/*.min.js',
-		    	'!js/plugins.js',
-		    	'!js/vendor/*.js',
+			all: [
+				'Gruntfile.js', 
+				'js/**/*.js', 
+				'!js/*.min.js',
+				'!js/plugins.js',
+				'!js/vendor/*.js',
 				'!js/<%= pkg.name %>.js'
-		    ]
+			]
 		},
 		imagemin: {    
 			dynamic: {
-				options: {                       // Target options
+				options: {                       	// Target options
 					optimizationLevel: 4
-				},                         // Another target
+				},                         			// Another target
 				files: [{
-					expand: true,                  // Enable dynamic expansion
-					cwd: 'src-img/',                   // Src matches are relative to this path
-					src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-					dest: 'img/'                  // Destination path prefix
+					expand: true,                  	// Enable dynamic expansion
+					cwd: 'src-img/',               	// Src matches are relative to this path
+					src: ['**/*.{png,jpg,gif}'],   	// Actual patterns to match
+					dest: 'img/'                  	// Destination path prefix
 				}]
 			}
 		},
@@ -82,18 +85,18 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					assets: [{
-			            src: [ 'dist/<%= pkg.name %>.min.js' ],
-			            dest: 'dist/<%= pkg.name %>.min.js'
-			        }], 
+						src: [ 'dist/<%= pkg.name %>.min.js' ],
+						dest: 'dist/<%= pkg.name %>.min.js'
+					}], 
 					key: 'global',
 					dest: '',
 					type: 'js',
 					ext: '.min.js'
 				}, {
 					assets: [{
-			            src: [ 'css/style.css' ],
-			            dest: 'css/style.css'
-			        }], 
+						src: [ 'css/style.css' ],
+						dest: 'css/style.css'
+					}], 
 					key: 'global',
 					dest: '',
 					type: 'css',
