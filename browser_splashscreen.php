@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 define('TEMPLATE_BASE_FOLDER', 		rz_core::getTemplateFolder());
 define('TEMPLATE_JS_FOLDER', 		TEMPLATE_BASE_FOLDER.'js/');
@@ -15,14 +15,14 @@ rz_core::baseHTML(rz_setting::get("site_title")); ?>
 	<meta name="apple-mobile-web-app-capable" content="no" />
 	<link rel="stylesheet" href="<?php echo TEMPLATE_CSS_FOLDER; ?>style.css" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo TEMPLATE_CSS_FOLDER; ?>style_notcompatible.css">
-	<?php					
+	<?php
 	rz_core::importCSSLibs();
 	?>
 </head>
 <body id="browser_splashscreen">
-	<div id="browser_splashscreen_container"><?php 
+	<div id="browser_splashscreen_container"><?php
 
-		rz_document::getAdminImage()->getView()->displayDocumentByArray(array("width"=>50, 'titled'=>0)); 
+		rz_document::getAdminImage()->getView()->displayDocumentByArray(array("width"=>50, 'titled'=>0));
 
 		?><h1><?php echo(rz_setting::get("site_title")._(" use latest web technologies.")); ?></h1>
 		<p><?php echo(_("To access this website we encourage you to update your browser or to download one of these awesome recent browsers.")); ?></p>
@@ -41,7 +41,7 @@ rz_core::baseHTML(rz_setting::get("site_title")); ?>
 			</li>
 			<li class="clearfloat"></li>
 		</ul>
-	</div><?php 
-	rzwidget_analytics::insertTrackingScript(); 
+	</div><?php
+	rzwidget_analytics::insertTrackingScript();
 ?></body>
 </html>

@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 			banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */\n'
 		  },
 		  build: {
-			src: 'js/<%= pkg.name %>.js', 	
+			src: 'js/<%= pkg.name %>.js',
 			dest: 'js/<%= pkg.name %>.min.js'
 		  }
 		},
@@ -41,10 +41,10 @@ module.exports = function(grunt) {
 		watch: {
 			scripts: {
 				files: [
-					'js/*.js', 
-					'css/**/*.less', 
+					'js/*.js',
+					'css/**/*.less',
 					'src-img/*.{png,jpg,gif}',
-					'!js/<%= pkg.name %>.js', 	
+					'!js/<%= pkg.name %>.js',
 					'!js/<%= pkg.name %>.min.js'
 				],
 				tasks: ['less', 'jshint', 'concat','uglify', 'imagemin'],
@@ -55,15 +55,15 @@ module.exports = function(grunt) {
 		},
 		jshint: {
 			all: [
-				'Gruntfile.js', 
-				'js/**/*.js', 
+				'Gruntfile.js',
+				'js/**/*.js',
 				'!js/*.min.js',
 				'!js/plugins.js',
 				'!js/vendor/*.js',
 				'!js/<%= pkg.name %>.js'
 			]
 		},
-		imagemin: {    
+		imagemin: {
 			dynamic: {
 				options: {                       	// Target options
 					optimizationLevel: 4
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 					assets: [{
 						src: [ 'dist/<%= pkg.name %>.min.js' ],
 						dest: 'dist/<%= pkg.name %>.min.js'
-					}], 
+					}],
 					key: 'global',
 					dest: '',
 					type: 'js',
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
 					assets: [{
 						src: [ 'css/style.css' ],
 						dest: 'css/style.css'
-					}], 
+					}],
 					key: 'global',
 					dest: '',
 					type: 'css',
@@ -106,7 +106,7 @@ module.exports = function(grunt) {
 		},
 		clean: ["public"]
 	});
-	
+
 	/*
 	 * Watch differently LESS and JS
 	 */
@@ -119,7 +119,7 @@ module.exports = function(grunt) {
 		}
 		else if( filepath.indexOf('.png') > -1  ||
 			filepath.indexOf('.jpg') > -1  ||
-			filepath.indexOf('.gif') > -1 ){ 
+			filepath.indexOf('.gif') > -1 ){
 			grunt.config('watch.scripts.tasks', ['imagemin']);
 		}
 	});

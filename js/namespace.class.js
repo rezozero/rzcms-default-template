@@ -15,11 +15,11 @@ var NAMESPACE = {};
 	// Pages
 	NAMESPACE.page1 = null;
 
-	
+
 /*
  * ============================================================================
  * Methods
- * 
+ *
  */
 
 
@@ -28,7 +28,7 @@ var NAMESPACE = {};
  * @return {[type]} [description]
  */
 NAMESPACE.onLoad = function(){
-	
+
 };
 
 
@@ -50,7 +50,7 @@ NAMESPACE.onReady = function(){
 	// Resize
 	// NAMESPACE.$window.on('resize', $.proxy(NAMESPACE.resize, NAMESPACE));
 	// NAMESPACE.$window.trigger('resize');
-	
+
 	// Init
 	NAMESPACE.init();
 
@@ -63,10 +63,10 @@ NAMESPACE.onReady = function(){
  */
 NAMESPACE.init = function(){
 	var _this = this;
-	
-	// Selectors 
 
-	
+	// Selectors
+
+
 	// Methods to call
 	// _this.method1();
 

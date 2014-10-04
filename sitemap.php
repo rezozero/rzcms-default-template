@@ -1,9 +1,9 @@
 <?php
 /**
  * Copyright REZO ZERO 2014
- * 
- * 
- * 
+ *
+ *
+ *
  *
  * @file sitemap.php
  * @copyright REZO ZERO 2014
@@ -29,16 +29,16 @@ $typesIDs = rz_node_type::get_rows(array(
 	'get_columns'=>array('node_type_id'),
 	'name'=> array(
 		'page_type',
-		/* 
+		/*
 		 *
 		 * Add your own node-types here
-		 * 
+		 *
 		 */
 	)
 ))->fetchAll(PDO::FETCH_COLUMN, 0);
 
 
-header("Content-type: text/xml"); 
+header("Content-type: text/xml");
 print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 
 $nodedisplayed = array();
@@ -67,13 +67,13 @@ $nodedisplayed = array();
 
 		$nodes = rz_node::get_rows(array(
 			'get_columns'=>   $get_columns,
-			'visible'=>       1, 
-			'published'=>     1, 
+			'visible'=>       1,
+			'published'=>     1,
 			'node_type_id'=>  $typesIDs,
-			"order_by"=>      "parent_node_id", 
-			"node_name"=>     array("!=",HOME_NODE), 
+			"order_by"=>      "parent_node_id",
+			"node_name"=>     array("!=",HOME_NODE),
 			'translation_id'=>$lang->translation_id
-		));	
+		));
 
 		while ($cnode = rz_node::nudeHydrate($nodes)) {
 
@@ -83,12 +83,12 @@ $nodedisplayed = array();
 			/**
 			 * Test if current node have a template class and a getView method
 			 */
-			if(!in_array($cnode->node_name, $nodedisplayed) && 
+			if(!in_array($cnode->node_name, $nodedisplayed) &&
 				class_exists($classname) &&
 				method_exists($classname, 'getView')) {
 
 				$nodedisplayed[] = $cnode->node_name;
-										
+
 				?><url>
 					<loc><?php echo $cnode->getNodeURL() ?></loc>
 					<lastmod><?php echo date("Y-m-d", strtotime($cnode->lastmod_date)) ?></lastmod>
