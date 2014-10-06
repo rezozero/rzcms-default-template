@@ -16,8 +16,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenMax.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.7/plugins/ScrollToPlugin.min.js"></script>
 {% else %}
-<script type="text/javascript" src="{{ head.jsFolder }}vendor/TweenMax.min.js"></script>
-<script type="text/javascript" src="{{ head.jsFolder }}vendor/ScrollToPlugin.js"></script>
+<script src="{{ head.jsFolder }}vendor/TweenMax.min.js"></script>
+<script src="{{ head.jsFolder }}vendor/ScrollToPlugin.js"></script>
 {% endif %}
 
 {# 
@@ -25,16 +25,16 @@
  #}
 {% if head.debug %}
 {# List here your JS homemade and vendors, do not forget to declare them in your Gruntfile.js #}
-<script type="text/javascript" src="{{ head.jsFolder }}plugins.js"></script>
-<script type="text/javascript" src="{{ head.jsFolder }}namespace.class.js"></script>
-<!-- Page 1 <script type="text/javascript" src="{{ head.jsFolder }}namespace_page1.class.js"></script> -->
-<script type="text/javascript" src="{{ head.jsFolder }}main.js"></script>
+<script src="{{ head.jsFolder }}plugins.js"></script>
+<script src="{{ head.jsFolder }}namespace.class.js"></script>
+<!-- Page 1 <script src="{{ head.jsFolder }}namespace_page1.class.js"></script> -->
+<script src="{{ head.jsFolder }}main.js"></script>
 {% else %}
 {# Minified JS file is generated with Grunt. Check your package.json to choose your file name #}
-<script type="text/javascript" src="{{ head.publicFolder }}{{ grunt.staticAssets.global.js[0] }}"></script>
+<script src="{{ head.publicFolder }}{{ grunt.staticAssets.global.js[0] }}"></script>
 {% endif %}
 
-<script type="text/javascript">
+<script>
 	var temp = {};
 	temp.baseFolder = "{{ head.baseFolder }}";
 	temp.checksum = "{{ head.checksum }}";

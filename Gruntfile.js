@@ -85,8 +85,8 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					assets: [{
-						src: [ 'dist/<%= pkg.name %>.min.js' ],
-						dest: 'dist/<%= pkg.name %>.min.js'
+						src: [ 'js/<%= pkg.name %>.min.js' ],
+						dest: 'js/<%= pkg.name %>.min.js'
 					}], 
 					key: 'global',
 					dest: '',

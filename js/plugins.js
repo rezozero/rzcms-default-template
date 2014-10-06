@@ -26,6 +26,25 @@ var isset = function(element) {
     return false;
 };
 
+// Add class custom
+var addClass = function(el, classToAdd){
+
+    if (el.classList) el.classList.add(classToAdd);
+    else el.className += ' ' + classToAdd;
+};
+
+// Remove class custom
+var removeClass = function(el, classToRemove){
+
+    if(el.classList) el.classList.remove(classToRemove);
+    else{
+        el.className = el.className.replace(new RegExp('(^|\\b)' + classToRemove.split(' ').join('|') + '(\\b|$)', 'gi'), '');
+    
+        var posLastCar = el.className.length-1;
+        if(el.className[posLastCar] == ' ') el.className = el.className.substring(0, posLastCar);
+    }    
+};
+
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
