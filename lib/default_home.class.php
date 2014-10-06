@@ -1,14 +1,14 @@
-<?php 
+<?php
 /**
  * Home assignation controller
- * 
+ *
  * Default template
  */
 class default_home extends rz_node_helper
 {
 	/**
 	 * getView method is automatically called from template controller to display specific nodes or node-types
-	 * 
+	 *
 	 * @return string HTML output
 	 */
 	public function getView()

@@ -7,6 +7,8 @@
 * Edit the `package.json` file and install dependencies using `npm install` in your template folder
 * Go to your RZCMS administration, add your template in *Manage templates* section, do not forget to **activate** it after adding it.
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/6d568d5f-5c39-4709-847c-74dd02e1fc0b/mini.png)](https://insight.sensiolabs.com/projects/6d568d5f-5c39-4709-847c-74dd02e1fc0b)
+
 ## Documentation
 
 * You can check [RZCMS API website](http://api.rezo-zero.com) for detailled PHP reference.

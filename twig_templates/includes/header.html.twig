@@ -3,10 +3,10 @@
 <!--[if IE 7]><html xmlns="http://www.w3.org/1999/xhtml" class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]><html xmlns="http://www.w3.org/1999/xhtml" class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:fb="https://www.facebook.com/2008/fbml" 
-    xml:lang="{{ head.lang }}" 
-    lang="{{ head.lang }}" 
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:fb="https://www.facebook.com/2008/fbml"
+    xml:lang="{{ head.lang }}"
+    lang="{{ head.lang }}"
     dir="{{ head.direction }}"><!--<![endif]-->
     <head>
         <meta charset="UTF-8" />
@@ -14,9 +14,9 @@
         <meta name="generator" content="RZ-CMS {{ head.cmsVersion }}" />
         <meta name="description" content="{{ head.description }}" />
         <meta name="keywords" content="{{ head.keywords }}" />
-        
-        {# 
-        -------- Favicons (generated with Real Favicon Generator -> http://realfavicongenerator.net) ----------- 
+
+        {#
+        -------- Favicons (generated with Real Favicon Generator -> http://realfavicongenerator.net) -----------
         #}
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-capable" content="no" />
@@ -38,7 +38,7 @@
         <meta name="msapplication-TileImage" content="{{ head.imgFolder }}favicons/mstile-144x144.png">
         <meta name="msapplication-config" content="{{ head.imgFolder }}favicons/browserconfig.xml">
 
-        {# 
+        {#
         -------- Share metas -----------
         #}
         <!-- Facebook -->
@@ -49,8 +49,8 @@
         <meta property="og:image" content="{{ head.imgFolder }}share/share-200.png" />
         <meta property="og:type" content="website" />
         <!-- Google Plus -->
-        <meta itemprop="name" content="" />
-        <meta itemprop="description" content="" />
+        <meta itemprop="name" content="{{ head.title }}" />
+        <meta itemprop="description" content="{{ head.description }}" />
         <meta itemprop="image" content="{{ head.imgFolder }}share/share-200.png" />
         <!-- Twitter -->
         <meta name="twitter:card" content="summary" />
@@ -61,7 +61,7 @@
         <meta name="twitter:url" content="{{ head.baseFolder }}" />
         <meta name="twitter:image" content="{{ head.imgFolder }}share/share-200.png" />
 
-        {# 
+        {#
         -------- Import styles with LESS or CSS -----------
         #}
         {% if head.useLESS == true %}
@@ -71,7 +71,7 @@
         {% endif %}
         {{ head.webFonts|raw }}
         {{ head.cssLibs|raw }}
-        {# 
+        {#
         ------------ Import your own custom modernizer to keep good performances ------------
         #}
         {% if head.useCDN %}

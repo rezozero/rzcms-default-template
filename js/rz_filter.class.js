@@ -1,8 +1,8 @@
 /**
  * Copyright REZO ZERO 2013
- * 
- * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License. 
- * 
+ *
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+ *
  * Ce(tte) œuvre est mise à disposition selon les termes
  * de la Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 France.
  *
@@ -22,7 +22,7 @@
  *		projects: 			'.excerpt',
  *		filterActiveClass: 	'current'
  *	});
- * 
+ *
  *
  * @file rz_filter.class.js
  * @copyright REZO ZERO 2013
@@ -49,7 +49,7 @@ RZFilter = function (options) {
 	_this.projects = 			$(_this.settings.containerProjects+' '+_this.settings.projects);
 	_this.containerProjects = 	$(_this.settings.containerProjects);
 
-	if (_this.filtersBar.length && 
+	if (_this.filtersBar.length &&
 		_this.projects.length > 0) {
 		_this.bind();
 	}
@@ -78,12 +78,12 @@ RZFilter.prototype.onClick = function(event) {
 
 	console.log("[RZFilter] Filter by => "+filterClass);
 
-	if( filterSelected.hasClass(_this.settings.resetClass) || 
+	if( filterSelected.hasClass(_this.settings.resetClass) ||
 		filterClass == "all") {
 		console.log("[RZFilter] Reset filters");
 		selector = _this.settings.projects;
 	}
-	
+
 	if(Modernizr.csstransitions) {
 		_this.filtersBar.find(_this.settings.filterTag).removeClass(_this.settings.filterActiveClass);
 		filterSelected.addClass(_this.settings.filterActiveClass);
@@ -113,12 +113,12 @@ RZFilter.prototype.onClick = function(event) {
 	return false;
 };
 
-RZFilter.prototype.gridFiltered = function(selector) 
+RZFilter.prototype.gridFiltered = function(selector)
 {
 	var _this = this;
 	_this.projects.addClass(_this.settings.projectHiddenClass);
 	$(selector).removeClass(_this.settings.projectHiddenClass);
-	setTimeout(function() { 
+	setTimeout(function() {
 		_this.reDisplay(selector);
 	}, 50);
 };
@@ -129,7 +129,7 @@ RZFilter.prototype.reDisplay = function(selector) {
 	var i = 1;
 	var delay;
 	var goodProjects = $(selector);
-	
+
 	goodProjects.each(function(index) {
 		var goodProject = $(this);
 		delay = i*100;

@@ -1,15 +1,15 @@
 <?php
 /**
  * Copyright REZO ZERO 2014
- * 
- * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License. 
- * 
+ *
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+ *
  * Ce(tte) œuvre est mise à disposition selon les termes
  * de la Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification 3.0 France.
  *
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/
  * or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
- * 
+ *
  * Default template
  *
  * @file index.php
@@ -23,7 +23,7 @@ if (!defined("RZCMS_ENTRYPOINT")) {
 	echo("<h2>HTTP/1.0 403 Forbidden</h2>");
 }
 else {
-	
+
 	define('TEMPLATE_FOLDER', 			dirname(__FILE__));
 	define('TEMPLATE_BASE_FOLDER', 		rz_core::getTemplateFolder());
 	define('TEMPLATE_JS_FOLDER', 		TEMPLATE_BASE_FOLDER.'js/');
@@ -32,9 +32,9 @@ else {
 
 
 	/*
-	 * Check if twig is correctly setup  
+	 * Check if twig is correctly setup
 	 */
-	if(rz_twig_tools::init(TEMPLATE_FOLDER)) 
+	if(rz_twig_tools::init(TEMPLATE_FOLDER))
 	{
 		/*
 		 * Prepare default assignations
@@ -54,7 +54,7 @@ else {
 		 * Specific templates for nodes
 		 */
 		$specificContentTemplates = array(
-			'home', 
+			'home',
 			//'contact'
 		);
 
@@ -65,14 +65,14 @@ else {
 			//'test'
 		);
 
-		if ($this->getRequestedNode() === null || 
+		if ($this->getRequestedNode() === null ||
 			in_array($this->getRequestedNode()->node_name, $noOutputNodes)) {
 			include(TEMPLATE_FOLDER.'/404/404.php');
 		}
 		else {
 
 			$view = rz_template::getViewByController(TEMPLATE_FOLDER, $specificContentTemplates);
-			if ($view !== false) 
+			if ($view !== false)
 			{
 				echo $view;
 			}
@@ -82,4 +82,3 @@ else {
 		}
 	}
 }
-

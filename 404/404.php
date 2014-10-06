@@ -1,8 +1,8 @@
-<?php 
+<?php
 /**
  * Copyright REZO ZERO 2014
- * 
- * 
+ *
+ *
  * Default template 404 page
  *
  * @file 404.php
