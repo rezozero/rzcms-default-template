@@ -41,6 +41,8 @@ else {
 		 */
 		rz_template::$globalAssignation = rz_twig_tools::prepareBaseAssignation();
 		rz_template::$globalAssignation['head']['checksum'] = rz_user::getChecksum();
+		rz_template::$globalAssignation['head']['currentURL'] = rz_core::getCurrentURL();
+		
 		/*
 		 * Grunt versioning
 		 */
